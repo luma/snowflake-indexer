@@ -1,0 +1,40 @@
+GEM
+  specs:
+    RedCloth (4.2.3)
+    activemodel (3.0.0.rc)
+      activesupport (= 3.0.0.rc)
+      builder (~> 2.1.2)
+      i18n (~> 0.4.1)
+    activesupport (3.0.0.rc)
+    builder (2.1.2)
+    daemon-kit (0.1.8.1)
+      eventmachine (>= 0.12.10)
+    eventmachine (0.12.10)
+    fastthread (1.0.7)
+    i18n (0.4.1)
+    json (1.4.6)
+    redis (2.0.5)
+    redis-namespace (0.9.0)
+      redis (< 3.0.0)
+    snowflake (0.2.9)
+      RedCloth (>= 4.2.3)
+      activemodel (>= 3.0.0.rc)
+      activesupport (>= 3.0.0.rc)
+      fastthread
+      json
+      redis (>= 2.0.3)
+      redis-namespace (>= 0.7.0)
+      system_timer
+      tzinfo
+      uuidtools (>= 2.1.1)
+    system_timer (1.0)
+    tzinfo (0.3.22)
+    uuidtools (2.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  daemon-kit (= 0.1.8.1)
+  json
+  snowflake (>= 0.2.9)

@@ -1,0 +1,14 @@
+elements:
+  - name: Product
+    indices:
+      - name
+      - permalink
+      - brand
+      - web_shops
+      - type
+  - name: TestNode
+    indices:
+      - name
+      - age
+      - mood
+      - tags

@@ -1,0 +1,72 @@
+= Snowflake Indexer
+
+* http://github.com/luma/snowflake-indexer
+
+== DESCRIPTION:
+
+The beginnings of a asynchronous indexer for Snowflake. This is very basic, right now, 
+and probably has a number of design issues (feedback and patches welcome).
+
+The intention with this is provide a simple rig that allows multiple indexers to be 
+executed in response to data changes. The default indexer that always executes already
+exists, it maintains the indices that Snowflake uses for basic filtering (Product.all :brand => 'Apple', :obsolete => false).
+It's envisioned that indexers for Sphinx or Solr could be added easily to provide fulltext
+search.
+
+
+== FEATURES/PROBLEMS:
+
+=== Problems
+
+1. Notifications of data changes are sent using Redis' built in Pub/Sub implementation. 
+This has the benefit of being easy to implement and doesn't involve any new libraries. 
+However, it's also likely to be slower and less scalable than using a dedicated message
+protocol like 0mq or AMQP. I'd like to attempt modifying the message protocol to be 0mq.
+
+2. Performance: Indexer needs to be quick, very quick. Ideally indexing (except for very
+large indices) should complete in no more than than a couple of ms. I don't think I'll be
+able to achieve this in Ruby, I think the overhead will be too great. So I'll likely be
+looking at rewriting the indexer in C.
+
+That being said no benchmarking has been done yet so maybe everything's cool :-)
+
+
+
+== SYNOPSIS:
+
+  FIX (code sample of usage)
+
+== REQUIREMENTS:
+
+* snowflake gem >= 0.2.9
+* json gem
+* daemon-kit gem >= 0.1.8.1
+
+== INSTALL:
+
+* FIX (sudo gem install, anything else)
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2010 Rolly
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+#
+# Stub executable for snowflake-indexer
+#
+
+require File.dirname(__FILE__) + '/../config/environment'
+
+DaemonKit::Application.exec( DAEMON_ROOT + '/libexec/snowflake-indexer-daemon.rb' )
