@@ -8,4 +8,4 @@ gem 'daemon-kit', '0.1.8.1'
 # For more information on bundler, please visit http://github.com/carlhuda/bundler
 
 gem 'json'
-gem "snowflake", ">= 0.2.9"
+gem "snowflake", ">= 0.2.10"
