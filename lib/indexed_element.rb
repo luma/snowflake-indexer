@@ -29,14 +29,14 @@ module Snowflake
           # @todo changes should be all fields, not just those with data (i.e. include fields with values of nil)
           Hash[*changes].each do |field, values|
             if @indices.include?( field )
-              DaemonKit.logger.info "\t#{@name}: Updating #{value.first.inspect} to #{value.last.inspect} on #{field}"
+              DaemonKit.logger.info "\t#{@name}: Updating #{values.first.inspect} to #{values.last.inspect} on #{field}"
 
               #Snowflake.connection.srem( Keys.meta_key_for( @name, 'indices', field, values.first ), key )
-              remove_value_from_index(key, field, value.first)
+              remove_value_from_index(key, field, values.first)
 
               if values.last != nil
                 #Snowflake.connection.sadd( Keys.meta_key_for( @name, 'indices', field, values.last ), key )
-                add_value_to_index(key, field, value.last)
+                add_value_to_index(key, field, values.last)
               end
             end
           end

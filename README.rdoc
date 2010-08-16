@@ -26,7 +26,9 @@ protocol like 0mq or AMQP. I'd like to attempt modifying the message protocol to
 2. Performance: Indexer needs to be quick, very quick. Ideally indexing (except for very
 large indices) should complete in no more than than a couple of ms. I don't think I'll be
 able to achieve this in Ruby, I think the overhead will be too great. So I'll likely be
-looking at rewriting the indexer in C.
+looking at rewriting the indexer in C. Of course this possibility isn't Ruby's fault, It's
+currently a *very* naive approach using lots of Forking, so Ruby's COW semantics are kicking
+my ass.
 
 That being said no benchmarking has been done yet so maybe everything's cool :-)
 

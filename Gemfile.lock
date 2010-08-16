@@ -16,7 +16,7 @@ GEM
     redis (2.0.5)
     redis-namespace (0.9.0)
       redis (< 3.0.0)
-    snowflake (0.2.10)
+    snowflake (0.2.12)
       RedCloth (>= 4.2.3)
       activemodel (>= 3.0.0.rc)
       activesupport (>= 3.0.0.rc)
@@ -37,4 +37,4 @@ PLATFORMS
 DEPENDENCIES
   daemon-kit (= 0.1.8.1)
   json
-  snowflake (>= 0.2.10)
+  snowflake (>= 0.2.12)

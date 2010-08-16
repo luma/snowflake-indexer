@@ -80,7 +80,7 @@ Snowflake.connection.psubscribe( *elements.keys ) do |on|
         # @todo check errors
         # @todo catch exceptions
         # @todo report errors
-        
+
         pid = Process.fork do
           trap("INT") {
           }
